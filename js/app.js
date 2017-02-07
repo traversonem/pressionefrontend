@@ -1,2 +1,3 @@
-var app = angular.module('pressionefrontend', []);
+var app = angular.module('pa', []);
+
 

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 
-<html ng-app="pressionefrontend">
+<html ng-app="pa">
     <head>
-        <title>TODO supply a title</title>
+        <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/app.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <script src="lib/angular.min.js" type="text/javascript"></script>
+        <!--script src="lib/bootstrap.min.js" type="text/javascript"></script-->
+        <script src="js/app.js" type="text/javascript"></script>
+        <script src="js/controllers/PressioneController.js" type="text/javascript"></script>
     </head>
-    <body >
-        <div>TODO write content</div>
+
+    <body>
+        <div ng-controller="PressioneController as pressione">test: {{pressione.test}}</div>
     </body>
 </html>
