@@ -5,15 +5,49 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/app.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/ui-grid.min.css" rel="styleSheet" />
+        <link href="css/app.css" rel="stylesheet" type="text/css"/>
         <script src="lib/angular.min.js" type="text/javascript"></script>
-        <!--script src="lib/bootstrap.min.js" type="text/javascript"></script-->
         <script src="js/app.js" type="text/javascript"></script>
         <script src="js/controllers/PressioneController.js" type="text/javascript"></script>
-    </head>
+        <script src="lib/ui-grid.min.js"></script>
 
+        <!--script src="lib/bootstrap.min.js" type="text/javascript"></script-->
+    </head>
     <body>
-        <div ng-controller="PressioneController as pressione">test: {{pressione.test}}</div>
+        <div ng-controller="PressioneController as pressione">
+            <!--div ui-grid="{ data: dati }" class="myGrid"></div-->
+            <h1 class="h1">Tabella misurazioni</h1>
+            <form>
+                <input type="text" placeholder="sistolica" ng-model="newRecord.sistolica"/>
+                <input type="text" placeholder="diastolica" ng-model="newRecord.diastolica"/>
+                <input type="number" step="any" placeholder="peso" ng-model="newRecord.kg"/>
+                <input type="date"  ng-model="newRecord.datamisurazione"/>
+                <button data-ng-click="pressione.addRecord()" name="add">SUBMIT</button>
+            </form>
+            <table class="table table-striped">
+                <thead>
+                <!--th>COUNTER </th-->
+                <th>ID </th>
+                <th>SISTOLICA</th>
+                <th>DIASTOLICA </th>
+                <th>PESO (kg)</th>
+                <th>DATA MISURAZIONE </th>
+                <th>X</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(k,v) in dati" >
+                        <!--td>{{$index + 1}}</td-->
+                        <td>{{v.id}}</td>
+                        <td>{{v.sistolica}}</td>
+                        <td>{{v.diastolica}}</td>
+                        <td>{{v.kg}}</td>
+                        <td>{{v.datamisurazione}}</td>
+                        <td ><button ng-click="pressione.deleteRow(k)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

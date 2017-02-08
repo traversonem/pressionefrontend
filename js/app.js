@@ -1,3 +1,3 @@
-var app = angular.module('pa', []);
+var app = angular.module('pa', ['ui.grid']);
 
 
